@@ -28,3 +28,17 @@ programming logic and understanding of the basic language syntax without looking
 
 Write a function that returns the sum of all integers between two integers. For example given 3 and 5 the return should 
 be 12 or (3 + 4 + 5) = 12.
+
+## Game of Life
+
+Based on Conway's Game of Life https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life.
+
+Used to validate understanding and use of more complex data structures and edge cases.
+
+The game of life has a grid of cells that have one of two states, alive or dead. In each step of the game the cells are 
+updated using a set of rules. Complete the function that updates the game board with the next generation.
+
+1. Any live cell with fewer than two live neighbors dies, as if by underpopulation.
+2. Any live cell with two or three live neighbors lives on to the next generation.
+3. Any live cell with more than three live neighbors dies, as if by overpopulation.
+4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
