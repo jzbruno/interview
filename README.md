@@ -60,3 +60,16 @@ binary that has no dependencies. When run the binary will open and listen on por
 with "Hello world!".
 
 [app](https://github.com/jzbruno/interview/releases/download/v1.0.0/app)
+
+## Docker
+
+Used to validate basic understanding of Docker containers.
+
+Write a Dockerfile that will create a container image with a basic web application that serves traffic on port 8080 when the container is run. Open the web application in a browser to show it is working.
+
+1. Use the [app](https://github.com/jzbruno/interview/releases/download/v1.0.0/app) binary. It can be run on Linux using the command `./app`.
+2. Write a Dockerfile
+3. Build the container image
+4. Run the container
+5. Open the web application in a browser
+
