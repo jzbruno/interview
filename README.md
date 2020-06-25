@@ -26,8 +26,6 @@ Write a function that given an integer returns:
 
 ## SumIt
 
-Inspired by https://github.com/kenblair/interview-demo
-
 Used to validate basic coding skills in a specific language. The interviewee should demonstrate 
 understanding of basic programming logic and understanding of the basic language syntax without 
 looking it up.
