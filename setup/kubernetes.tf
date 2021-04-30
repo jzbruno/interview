@@ -8,10 +8,6 @@ variable "ami_id" {
   default = "ami-0742b4e673072066f"
 }
 
-variable "key_pair_name" {
-  default = "jzbruno"
-}
-
 variable "fqdn" {
   default = "interview-k8s.jzbruno.com"
 }
@@ -60,11 +56,30 @@ resource "aws_security_group" "interview_k8s" {
   }
 }
 
+resource "tls_private_key" "interview_private_key" {
+  algorithm   = "RSA"
+}
+
+resource "local_file" "interview_private_key" {
+  content  = tls_private_key.interview_private_key.private_key_pem
+  filename = "${path.module}/interview.pem"
+  file_permission = "0600"
+}
+
+resource "aws_key_pair" "interview" {
+  key_name   = "interview"
+  public_key = tls_private_key.interview_private_key.public_key_openssh
+}
+
+output "instance_k8s_ssh" {
+  value = "ssh -i ${path.module}/interview.pem  ec2-user@${aws_instance.interview_k8s.public_ip}"
+}
+
 resource "aws_instance" "interview_k8s" {
   ami                         = var.ami_id
   instance_type               = var.instance_type
   associate_public_ip_address = true
-  key_name                    = var.key_pair_name
+  key_name                    = aws_key_pair.interview.key_name
   subnet_id                   = aws_subnet.interview_use1a_pub.id
   vpc_security_group_ids      = [aws_security_group.interview_k8s.id]
 
