@@ -77,8 +77,18 @@ resource "aws_instance" "interview_k8s" {
 
   set -euo pipefail
 
+  # Install docker
+
+  sudo yum update -y
+  sudo amazon-linux-extras install docker
+  sudo systemctl enable docker
+  sudo systemctl start docker
+  sudo usermod -aG docker ec2-user
+
+  # Install small kubernetes cluster using k3s
+
   export K3S_KUBECONFIG_MODE="644"
-  export INSTALL_K3S_EXEC="--tls-san ${var.fqdn}"
+  export INSTALL_K3S_EXEC="--tls-san ${var.fqdn} --docker"
 
   curl -sfL https://get.k3s.io | sh -
   kubectl config view --flatten | sed "s/127.0.0.1/${var.fqdn}/g" > /home/ec2-user/kubeconfig
