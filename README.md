@@ -31,7 +31,7 @@ looking it up.
 
 Write a function that returns the sum of all integers between two integers. For example given 3 and 5 the return should be 12 or (3 + 4 + 5) = 12.
 
-[SumIt Online Python Repl](https://www.online-python.com/hKpOUV7tTX)
+[SumIt Online Python Repl](https://www.online-python.com/E6Q3hbYr1q)
 
 ## Game of Life
 
