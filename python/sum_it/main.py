@@ -1,11 +1,11 @@
 # Write the code for the following function to main the tests pass.
 # Do not change the function signature.
 #
-# The sum_it function returns an integer that is the sum of the
+# The sum_it function returns an integer that is the sum of all of the
 # integers between the given parameters a and b. For example:
 #
 # - If 3 and 5 are passed in the result should be 12 because 3 + 4 + 5 = 12.
-# - If 4 and 7 are passed in the result should be 22 because 4 + 5 + 6 + 7) = 22.
+# - If 4 and 7 are passed in the result should be 22 because 4 + 5 + 6 + 7 = 22.
 #
 def sum_it(a, b):
     pass
